@@ -1,0 +1,399 @@
+/**
+ * =====================================================
+ * INDEX.CSS - ESTILOS GLOBAIS DO SISTEMA
+ * =====================================================
+ *
+ * Este arquivo define a APARÊNCIA VISUAL do sistema.
+ * Usa Tailwind CSS - uma ferramenta que facilita criar estilos.
+ *
+ * O QUE ESTE ARQUIVO CONTÉM:
+ * 1. Importações do Tailwind (não modificar)
+ * 2. Otimizações de performance
+ * 3. Estilos para dispositivos móveis
+ * 4. Estilos para tablets
+ * 5. Animações de carregamento
+ *
+ * COMO FUNCIONA:
+ * - As classes como bg-gray-800 vêm do Tailwind
+ * - Este arquivo adiciona regras extras
+ * - As@media queries adaptam para telas diferentes
+ *
+ * BREAKPOINTS (TAMANHOS DE TELA):
+ * - Mobile: até 768px (celular)
+ * - Tablet: 768px a 1024px (iPad, Galaxy Tab)
+ * - Desktop: acima de 1024px (computador)
+ *
+ * NÃO É NECESSÁRIO MODIFICAR ESTE ARQUIVO
+ * A menos que queira mudar cores ou layouts
+ */
+
+/* ========================================
+   IMPORTAÇÕES DO TAILWIND (NÃO MODIFICAR)
+   ======================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   OTIMIZAÇÕES DE PERFORMANCE
+   ======================================== */
+/* Melhora a forma como os elementos são calculados */
+* {
+  box-sizing: border-box;
+}
+
+/* Melhora a renderização do texto */
+body {
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Estado de carregamento */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Otimiza listas grandes */
+.virtual-list {
+  contain: layout style paint;
+}
+
+/* Otimiza animações */
+* {
+  will-change: auto;
+}
+
+.transition-transform {
+  will-change: transform;
+}
+
+.transition-opacity {
+  will-change: opacity;
+}
+
+/* Otimiza imagens */
+img {
+  max-width: 100%;
+  height: auto;
+  loading: lazy;
+  decoding: async;
+}
+
+/* Otimiza tabelas */
+table {
+  table-layout: fixed;
+}
+
+/* ========================================
+   ESTILOS PARA DISPOSITIVOS MÓVEIS
+   Até 768px de largura (celulares)
+   ======================================== */
+@media (max-width: 768px) {
+  /* Header mobile - mais altura para o menu */
+  header {
+    min-height: 80px !important;
+  }
+
+  /* Conteúdo principal - mais espaço no topo */
+  main {
+    padding-top: 7rem !important;
+  }
+
+  /* Navegação mobile */
+  .lg\:hidden .flex.overflow-x-auto {
+    padding-bottom: 0.5rem !important;
+    gap: 0.25rem !important;
+  }
+
+  .lg\:hidden button {
+    min-width: 70px !important;
+    padding: 0.5rem 0.75rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .lg\:hidden button span {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    margin-top: 0.25rem !important;
+  }
+
+  /* Esconde barra de rolagem */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Force uma única coluna no mobile */
+  .grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Sobrescreve todas as classes de colunas */
+  .grid-cols-1, .grid-cols-2, .grid-cols-3, .grid-cols-4, .grid-cols-5,
+  .md\:grid-cols-2, .md\:grid-cols-3, .md\:grid-cols-4, .md\:grid-cols-5,
+  .lg\:grid-cols-2, .lg\:grid-cols-3, .lg\:grid-cols-4, .lg\:grid-cols-5,
+  .xl\:grid-cols-3, .xl\:grid-cols-4, .xl\:grid-cols-5 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Ajustes de container */
+  .max-w-7xl {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    max-width: 100% !important;
+  }
+
+  /* Tamanhos de fonte no mobile */
+  .text-3xl {
+    font-size: 1.5rem !important;
+  }
+
+  .text-2xl {
+    font-size: 1.25rem !important;
+  }
+
+  .text-xl {
+    font-size: 1.125rem !important;
+  }
+
+  /* Cards no mobile */
+  .bg-gray-800.rounded-xl {
+    margin: 0.5rem 0 !important;
+    padding: 1rem !important;
+    border-radius: 0.75rem !important;
+  }
+
+  /* Cards de estatísticas */
+  .bg-gray-800.rounded-xl.p-6 {
+    padding: 1rem !important;
+  }
+
+  .bg-gray-800.rounded-xl.p-6 h3 {
+    font-size: 1.25rem !important;
+  }
+
+  /* Botões no mobile */
+  .flex.space-x-4 {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+
+  .flex.space-x-4 > * {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Inputs de formulário */
+  .px-4.py-3 {
+    padding: 0.75rem !important;
+    font-size: 1rem !important;
+  }
+
+  /* Tabela no mobile - rolagem horizontal */
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch !important;
+    overflow-x: auto !important;
+  }
+
+  .overflow-x-auto table {
+    min-width: 800px !important;
+    font-size: 0.875rem !important;
+  }
+
+  .overflow-x-auto th,
+  .overflow-x-auto td {
+    padding: 0.5rem !important;
+    white-space: nowrap !important;
+  }
+
+  /* Modal no mobile */
+  .fixed.inset-0 > .relative {
+    max-width: calc(100vw - 1rem) !important;
+    margin: 0.5rem !important;
+    max-height: calc(100vh - 1rem) !important;
+  }
+
+  /* Navegação mobile */
+  .hidden.md\:flex {
+    display: none !important;
+  }
+
+  .md\:hidden {
+    display: flex !important;
+  }
+
+  /* Filtros no mobile */
+  .flex.flex-col.sm\:flex-row {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .flex.items-center.space-x-4 {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+  }
+
+  .flex.items-center.space-x-4 > * {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Campo de busca mobile */
+  .relative input {
+    width: 100% !important;
+  }
+
+  /* Select dropdowns mobile */
+  select {
+    width: 100% !important;
+    font-size: 1rem !important;
+  }
+
+  /* Alvos de toque - mínimo 44px para acessibilidade */
+  button, a, input, select, textarea {
+    min-height: 44px !important;
+    font-size: 1rem !important;
+  }
+
+  /* Botões do header mobile */
+  .bg-blue-600.hover\:bg-blue-700 {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Grid de estatísticas mobile */
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4,
+  .grid.grid-cols-1.md\:grid-cols-5 {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Grid de formulário mobile */
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3,
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Breakdown de categorias mobile */
+  .grid.grid-cols-2.md\:grid-cols-4 {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.75rem !important;
+  }
+}
+
+/* ========================================
+   ESTILOS PARA TABLETS
+   Entre 768px e 1024px de largura
+   ======================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Conteúdo principal */
+  main {
+    padding-top: 5.5rem !important;
+  }
+
+  .max-w-7xl {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Grid 2 colunas no tablet */
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4,
+  .grid.grid-cols-1.md\:grid-cols-5 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  /* Formulários no tablet */
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3,
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  /* Categorias no tablet */
+  .grid.grid-cols-2.md\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  /* Tabela no tablet */
+  .overflow-x-auto table {
+    font-size: 0.875rem !important;
+  }
+
+  .overflow-x-auto th,
+  .overflow-x-auto td {
+    padding: 0.75rem !important;
+  }
+
+  /* Filtros no tablet */
+  .flex.items-center.space-x-4 {
+    flex-wrap: wrap !important;
+    gap: 0.75rem !important;
+  }
+
+  .flex.items-center.space-x-4 > * {
+    margin-left: 0 !important;
+    min-width: 200px !important;
+  }
+
+  /* Modal no tablet */
+  .fixed.inset-0 > .relative {
+    max-width: calc(100vw - 2rem) !important;
+    margin: 1rem !important;
+  }
+}
+
+/* ========================================
+   ANIMAÇÕES E EFEITOS GERAIS
+   ======================================== */
+
+/* Rolagem suave ao clicar em links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Otimiza renderização de fundos */
+.bg-gray-800, .bg-gray-700 {
+  transform: translateZ(0);
+}
+
+/* Reduz "layout thrashing" em grids */
+.grid {
+  contain: layout;
+}
+
+/* Otimiza modais */
+.fixed {
+  transform: translateZ(0);
+}
+
+/* Animação de skeleton loading */
+.skeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
